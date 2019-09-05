@@ -1,0 +1,43 @@
+extension pgcrypto;
+
+-- Random
+CREATE OR REPLACE FUNCTION sha1(bytea) returns text AS $$
+        SELECT encode(digest($1, 'sha1'), 'hex')
+$$ LANGUAGE SQL STRICT IMMUTABLE;
+
+-- Users
+create sequence bandi_uid_seq;
+
+create table bandi_users (
+        uid integer not null default nextval('bandi_uid_seq'),
+        username varchar(30),
+        realname text,
+        email text,
+        status char(1),
+        hours integer,
+        salt char(16),
+        password char(40),
+        primary key(uid),
+        check (status = 'a' or status ='b'),
+        unique(username)
+);
+
+-- Reservations
+create sequence bandi_rid_seq;
+
+create table bandi_reservations (
+        rid integer not null default nextval('bandi_rid_seq'),
+
+        uid integer not null,
+        day date not null,
+        hour integer not null,
+
+        reserved timestamp with time zone default now(),
+
+        primary key (rid),
+        foreign key (uid) references bandi_users(uid),
+        unique (day, hour)
+);
+
+insert into bandi_users (uid, username, realname, email, status, hours, salt, password) values
+(nextval('bandi_uid_seq'), 'admin', 'Admin', 'admin@example.com', 'a', 20, 'deadcodedeadcode', sha1(bytea('deadcodedeadcode' || 'admin')));
