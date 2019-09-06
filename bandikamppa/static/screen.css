@@ -6,8 +6,10 @@ body {
   background: #eee;
 }
 #header {
-  height: 45px;
-  background: url('header_bg.png') repeat-x;
+  background-color: #336699;
+  color: #ffffff;
+  line-height: 1.5;
+  padding: 10px;
 }
 #header-center {
   width: 800px;
@@ -27,12 +29,12 @@ body {
   padding: 0 10px;
 }
 #content-menu li a {
-  color: #003366;
+  color: #ffffff;
   text-decoration: none;
   font-weight: bold;
 }
 #content-menu li a:hover {
-  color: #336699;
+  color: #5daeff;
 }
 #content-outer {
   width: 800px;

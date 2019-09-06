@@ -9,7 +9,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 
-	<title>SatO</title>
+	<title>Bändikämppä</title>
 
 	<meta name="Author" content="author" />
 	<meta name="Description" content="Sato bandikamppa" />
@@ -17,15 +17,17 @@
 	<meta name="Keywords" content="Sato bandikamppa" />
 
 	<link rel="stylesheet" href="static/screen.css" type="text/css" media="screen, projection" >
-	<!-- <script src="static/less.js" type="text/javascript"></script> -->
 </head>
 
 <body>
-	<div id="header"><div id="header-center"><a href="/"><img src="static/header_logo.png" /></a></div></div>
+	<div id="header">
+		<div id="header-center">
+			<?php include('menu.php') ?>
+		</div>
+	</div>
 
 	<div id="content-outer">
 		<div id="content">
-<?php include('menu.php') ?>
 
 <?php if (!empty($errors)): ?>
 			<ul class="errors">
