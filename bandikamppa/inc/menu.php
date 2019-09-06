@@ -1,4 +1,3 @@
-
 <div id="content-menu">
 	<ul>
 		<li><a href="/">Bändikämppä</a></li>
@@ -16,4 +15,3 @@
 		</ul>
 	<? endif; ?>
 </div>
-
