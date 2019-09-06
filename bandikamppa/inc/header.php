@@ -17,6 +17,7 @@
 	<meta name="Keywords" content="Sato bandikamppa" />
 
 	<link rel="stylesheet" href="static/screen.css" type="text/css" media="screen, projection" >
+	<link rel="shortcut icon" type="image/x-icon" href="static/favicon.ico" />
 </head>
 
 <body>
