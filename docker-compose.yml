@@ -1,0 +1,24 @@
+version: '3.5'
+services:
+    bandikamppa-app:
+      build: .
+      image: osakunta/bandikamppa
+      container_name: bandikamppa-app
+      ports:
+        - 80:80
+      environment:
+        - DB_HOST=bandikamppa-db
+        - DB_NAME=postgres
+        - DB_USER=postgres
+        - DB_PASSWORD=postgres
+      volumes:
+        - ./bandikamppa:/var/www/html
+    bandikamppa-db:
+      image: postgres
+      environment:
+        - POSTGRES_PASSWORD=postgres
+      volumes:
+        - database:/var/lib/postgresql/data
+
+volumes:
+  database:
