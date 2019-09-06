@@ -1,105 +1,104 @@
+@import url("normalize.css");
+
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
+
+p, ul, form, h1, h2 {
+  margin-bottom: 10px;
+}
+
 body {
   background: #eee;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 0.9rem;
 }
+
 #header {
   background-color: #336699;
   color: #ffffff;
-  line-height: 1.5;
-  padding: 10px;
+  padding: 20px;
 }
-#header-center {
+
+#content-menu {
   width: 800px;
   margin: 0 auto;
+  overflow: auto;
 }
-#content-menu {
-  height: 20px;
-  margin-bottom: 10px;
-}
+
 #content-menu ul {
   list-style: none;
+  margin-bottom: 0;
 }
+
 #content-menu li {
   display: block;
-  height: 20px;
   float: left;
   padding: 0 10px;
 }
+
 #content-menu li a {
   color: #ffffff;
   text-decoration: none;
+  text-transform: uppercase;
   font-weight: bold;
 }
+
 #content-menu li a:hover {
   color: #5daeff;
 }
+
 #content-outer {
   width: 800px;
   margin: 5px auto;
   background: #fff;
 }
+
 #content {
   padding: 10px 30px;
 }
-#content p,
-#content td,
-#content th,
-#content li {
-  font-size: 12px;
-  font-family: Helvetica, Arial, sans-serif;
-}
-#content h2 {
-  font-size: 16px;
-  font-family: Helvetica, Arial, sans-serif;
-  margin-bottom: 10px;
-}
-#content p {
-  margin-bottom: 10px;
-  text-align: justify;
-}
-#content ul {
-  margin-bottom: 10px;
-}
-#content form {
-  margin-bottom: 10px;
-}
+
 ul.errors {
   width: 100%;
   border: 1px solid #cc0000;
   background-color: #ffcccc;
   list-style: none;
 }
-ul.errors li {
-  padding: 5px 2px;
-}
+
 ul.messages {
   width: 100%;
   border: 1px solid #00cc00;
   background-color: #ccffcc;
   list-style: none;
 }
-ul.messages li {
-  padding: 5px 2px;
+
+ul.messages li, ul.errors li {
+  padding: 5px;
 }
+
 #content table.list {
   border-collapse: collapse;
 }
+
 #content table.list th,
 #content table.list td {
   padding: 0 1em;
 }
+
 #content table.list td {
   border: 1px dotted #336699;
 }
+
 #content table.list th {
   border-bottom: 1px solid #336699;
 }
+
 #content table.list form {
   margin: 0;
 }
+
 p.error {
   color: #cc0000;
 }

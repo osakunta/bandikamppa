@@ -21,9 +21,7 @@
 
 <body>
 	<div id="header">
-		<div id="header-center">
-			<?php include('menu.php') ?>
-		</div>
+		<?php include('menu.php') ?>
 	</div>
 
 	<div id="content-outer">
