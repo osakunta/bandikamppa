@@ -1,11 +1,8 @@
 <?
 require_once('config.php');
 
-// debug
-// ini_set('display_errors', true);
-
 // db
-$pgconn = pg_connect('host=' . $_ENV["DB_HOST"] . ' dbname=' . $_ENV["DB_NAME"] . ' user=' . $_ENV["DB_USER"] . ' password=' . $_ENV["DB_PASSWORD"]);
+$pgconn = pg_connect($config['db_connection']);
 
 function pg_query_ex($conn, $templatesql, $params = array()) {
 	foreach ($params as $k => $v) {
@@ -20,8 +17,6 @@ function pg_query_ex($conn, $templatesql, $params = array()) {
 	// if (!$res) die('tietokantavirhe');
 	return $res;
 }
-
-
 
 // session
 session_start();
@@ -41,16 +36,16 @@ function admin() {
 function require_authorized() {
 	if (authorized()) return;
 
-	include('header.php');
-	include('footer.php');
+	$errors[] = 'Unauthorized!';
+	include('index.php');
 	die;
 }
 
 function require_admin() {
 	if (admin()) return;
 
-	include('header.php');
-	include('footer.php');
+	$errors[] = 'Unauthorized!';
+	include('index.php');
 	die;
 }
 
