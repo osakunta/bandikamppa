@@ -1,4 +1,3 @@
-<h2>Varaukset</h2>
 <?php
 $commonsql = "select r.rid, r.uid, r.day, u.username, r.hour, r.reserved > now() - interval '15 minutes' as cancelable from bandi_reservations r inner join bandi_users u using (uid) ";
 if (admin() && coalesce($_GET, 'show_all') == 'yes') {
@@ -20,15 +19,17 @@ if (admin()) {
 if (admin()):
 ?>
 <p>
-<a href="reservations.php?show_all=yes">Näytä kaikki</a>
+	<h1>Varaukset</h1>
+	<a href="reservations.php?show_all=yes" class="ui primary button">Näytä kaikki</a>
 </p>
 <?php
 endif;
 
 if ($res):
 ?>
-<table id="reservations-table" class="list">
-	<tr class="header">
+<table id="reservations-table" class="ui celled table">
+<thead>
+	<tr>
 		<th>Päivä</th>
 		<th>Aika</th>
 		<th>Varaaja</th>
@@ -37,6 +38,7 @@ if ($res):
 		<th></th>
 <?php endif; ?>
 	</tr>
+</thead>
 <?php while ($row = pg_fetch_assoc($res)): ?>
 	<tr>
 		<td><?=$row['day']?></td>
@@ -46,7 +48,7 @@ if ($res):
 <?php if (($row['cancelable']=='t' && $_SESSION['uid'] == $row['uid']) || admin()): ?>
 			<form action="cancel.php" method="post">
 			<input type="hidden" name="rid" value="<?=$row['rid']?>" />
-			<input type="submit" class="button" value="Peruuta" />
+			<input type="submit" class="ui button" value="Peruuta" />
 			</form>
 <?php endif; ?>
 		</td>
@@ -58,5 +60,4 @@ if ($res):
 <?php endif; ?>
 <?php endwhile; ?>
 </table>
-<?php
-endif;
+<?php endif; ?>

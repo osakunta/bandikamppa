@@ -75,15 +75,28 @@ if (!empty($_POST)) {
 
 require('inc/header.php');
 ?>
-	<p>Varaustunteja käytössä tässä kuussa: <?=$reservations_left?></p>
+	<p>
+		<h1>Varaa</h1>
+		Varaustunteja käytössä tässä kuussa: <?=$reservations_left?>
+	</p>
 
-	<form action="reserve.php" method="post">
-		<table id="reserve-form-table">
-		<tr><th>Päivämäärä (YYYY-MM-DD)</th><td><input class="text" type="text" name="day" value="<?=$day?>" /></td></tr>
-			<tr><th>Alkaen</th><td><input class="text" type="text" name="from" value="<?=$from?>" /></td></tr>
-			<tr><th>Loppuen</th><td><input class="text" type="text" name="to" value="<?=$to?>" /></td></tr>
-			<tr><td class="centered" rowspan="2"><input type="submit" value="Varaa"></td></tr>
-		</table>
+	<form action="reserve.php" method="post" class="ui form">
+		<div class="field">
+			<label>Päivämäärä</label>
+			<input type="text" name="day" value="<?=$day?>" placeholder="YYYY-MM-DD">
+		</div>
+
+		<div class="field">
+			<label>Alkaen</label>
+			<input type="text" name="from" value="<?=$from?>" placeholder="HH">
+		</div>
+
+		<div class="field">
+			<label>Loppuen</label>
+			<input type="text" name="to" value="<?=$to?>" placeholder="HH">
+		</div>
+
+		<button class="ui primary button" type="submit">Tee varaus</button>
 	</form>
 <?php
 include('inc/reservations.php');

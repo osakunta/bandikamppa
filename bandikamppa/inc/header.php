@@ -17,7 +17,9 @@
 	<meta name="Keywords" content="Sato bandikamppa" />
 
 	<link rel="stylesheet" href="static/screen.css" type="text/css" media="screen, projection" >
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
 	<link rel="shortcut icon" type="image/x-icon" href="static/favicon.ico" />
+	<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
 </head>
 
 <body>
@@ -25,6 +27,6 @@
 		<?php include('menu.php') ?>
 	</div>
 
-	<div id="content-outer">
+	<div id="content-outer" class="ui container">
 		<div id="content">
 			<?php include('notifications.php') ?>

@@ -1,4 +1,4 @@
-<div id="content-menu">
+<div id="content-menu" class="ui container">
 	<ul>
 		<li><a href="/">Bändikämppä</a></li>
 	</ul>

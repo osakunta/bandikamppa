@@ -1,30 +1,16 @@
-@import url("normalize.css");
-
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-p, ul, form, h1, h2 {
-  margin-bottom: 10px;
-}
-
-body {
-  background: #eee;
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 0.9rem;
-}
-
 #header {
   background-color: #336699;
   color: #ffffff;
-  padding: 20px;
+  padding: 20px 0;
 }
 
 #content-menu {
-  width: 800px;
-  margin: 0 auto;
   overflow: auto;
 }
 
@@ -50,16 +36,6 @@ body {
   color: #5daeff;
 }
 
-#content-outer {
-  width: 800px;
-  margin: 5px auto;
-  background: #fff;
-}
-
-#content {
-  padding: 10px 30px;
-}
-
 ul.errors {
   width: 100%;
   border: 1px solid #cc0000;
@@ -76,27 +52,6 @@ ul.messages {
 
 ul.messages li, ul.errors li {
   padding: 5px;
-}
-
-#content table.list {
-  border-collapse: collapse;
-}
-
-#content table.list th,
-#content table.list td {
-  padding: 0 1em;
-}
-
-#content table.list td {
-  border: 1px dotted #336699;
-}
-
-#content table.list th {
-  border-bottom: 1px solid #336699;
-}
-
-#content table.list form {
-  margin: 0;
 }
 
 p.error {

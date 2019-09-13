@@ -90,44 +90,47 @@ if (!$row) {
 require('inc/header.php');
 
 ?>
-<form action="user.php" method="post">
-<table class="list">
-	<tr>
-		<th>Käyttäjätunnus</th>
-		<td><input type="text" name="username" value="<?=$row['username']?>" /></td>
-	</tr>
-	<tr>
-		<th>Nimi</th>
-		<td><input type="text" name="realname" value="<?=$row['realname']?>" /></td>
-	</tr>
-	<tr>
-		<th>Sähköpostiosoite</th>
-		<td><input type="text" name="email" value="<?=$row['email']?>" /></td>
-	</tr>
-	<tr>
-		<th>Tunnit</th>
-		<td><input type="text" name="hours" value="<?=$row['hours']?>" /></td>
-	</tr>
-	<tr>
-		<th>Salasana</th>
-		<td><input type="password" name="pass1" value="" /></td>
-	</tr>
-	<tr>
-		<th>Salasana 2</th>
-		<td><input type="password" name="pass2" value="" /></td>
-	</tr>
-	<tr>
-		<td colspan="2">
-<?php if ($uid !== null): ?>
-			<input type="hidden" name="uid" value="<?=$uid ?>" />
-<?php endif; ?>
-			<input type="submit" value="tallenna">
-			<input type="reset" value="peruuta">
-		</td>
-	</tr>
-</table>
-</form>
-<?php
-require('inc/footer.php');
+<p>
+	<h1>Uusi käyttäjä</h1>
+</p>
 
-// <td><pre><?var_dump($row)?></pre></td>
+<form action="user.php" method="post" class="ui form">
+	<div class="field">
+		<label>Käyttäjätunnus</label>
+		<input type="text" name="username" value="<?=$row['username']?>" />
+	</div>
+
+	<div class="field">
+		<label>Nimi</label>
+		<input type="text" name="realname" value="<?=$row['realname']?>" />
+	</div>
+
+	<div class="field">
+		<label>Sähköpostiosoite</label>
+		<input type="text" name="email" value="<?=$row['email']?>" />
+	</div>
+
+	<div class="field">
+		<label>Tunnit</label>
+		<input type="text" name="hours" value="<?=$row['hours']?>" />
+	</div>
+
+	<div class="field">
+		<label>Salasana</label>
+		<input type="password" name="pass1" value="" />
+	</div>
+
+	<div class="field">
+		<label>Salasana uudelleen</label>
+		<input type="password" name="pass2" value="" />
+	</div>
+
+	<?php if ($uid !== null): ?>
+		<input type="hidden" name="uid" value="<?=$uid ?>" />
+	<?php endif; ?>
+
+	<input class="ui primary button" type="submit" value="Tallenna">
+	<input class="ui button" type="reset" value="Peruuta">
+</form>
+
+<?php require('inc/footer.php'); ?>

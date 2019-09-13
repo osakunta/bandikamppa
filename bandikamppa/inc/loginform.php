@@ -1,5 +1,5 @@
-<h2>SatO:n bändikämpän varauskone</h2>
 <p>
+	<h1>Satakuntatalon bändikämpän varauskone</h1>
 	Jos haluat musiikkihuoneen käyttäjäksi, ota yhteyttä musiikkihuoneen hoitajaan:
 	<a href="mailto:musiikkihuoneenhoitaja@satakuntatalo.fi">musiikkihuoneenhoitaja@satakuntatalo.fi</a>.
 </p>
@@ -9,10 +9,16 @@
 	<p class="error">Väärä tunnus tai salasana</p>
 <?php } ?>
 
-<form action="login.php" method="POST">
-	<table id="login-form-table">
-		<tr><th>Käyttäjätunnus</th><td><input class="text" type="text" name="username" /></td></tr>
-		<tr><th>Salasana</th><td><input class="text" type="password" name="password" /></td></tr>
-		<tr><td class="centered" rowspan="2"><input type="submit" value="Sisään"></td></tr>
-	</table>
+<form action="login.php" method="POST" class="ui form">
+	<div class="field">
+		<label>Käyttäjätunnus</label>
+		<input type="text" name="username" placeholder="Käyttäjätunnus">
+	</div>
+
+	<div class="field">
+		<label>Salasana</label>
+		<input type="password" name="password" placeholder="Salasana">
+	</div>
+
+	<button class="ui primary button" type="submit">Kirjaudu</button>
 </form>
