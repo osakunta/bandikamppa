@@ -1,15 +1,17 @@
 <?php if (!empty($errors)): ?>
-<ul class="errors">
+<br />
+<div class="ui negative message">
     <?php foreach ($errors as $error): ?>
-    <li><?=$error?></li>
+    <p><?=$error?></p>
     <?php endforeach; ?>
-</ul>
+</div>
 <?php endif; ?>
 
 <?php if (!empty($messages)): ?>
-<ul class="messages">
+<br />
+<div class="ui info message">
     <?php foreach ($messages as $message): ?>
-    <li><?=$message?></li>
+    <p><?=$message?></p>
     <?php endforeach; ?>
-</ul>
+</div>
 <?php endif; ?>
