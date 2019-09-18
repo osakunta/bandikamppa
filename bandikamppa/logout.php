@@ -5,8 +5,10 @@ $_SESSION = array('uid' => 0);
 
 require('inc/header.php');
 ?>
-<p>Heippa</p>
-<p><a href="index.php">etusivulle</a></p>
-<?
 
-require('inc/footer.php');
+<p>
+    <h1>Heippa</h1>
+    <a href="index.php">Palaa etusivulle</a>
+</p>
+
+<? require('inc/footer.php'); ?>
