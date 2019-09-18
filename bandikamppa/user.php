@@ -91,7 +91,11 @@ require('inc/header.php');
 
 ?>
 <p>
-	<h1>Uusi käyttäjä</h1>
+	<?php if ($uid === null): ?>
+		<h1>Uusi käyttäjä</h1>
+	<?php else: ?>
+		<h1>Käyttäjä</h1>
+	<?php endif; ?>
 </p>
 
 <form action="user.php" method="post" class="ui form">
