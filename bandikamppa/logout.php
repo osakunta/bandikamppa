@@ -11,4 +11,4 @@ require('inc/header.php');
     <a href="index.php">Palaa etusivulle</a>
 </p>
 
-<? require('inc/footer.php'); ?>
+<?php require('inc/footer.php'); ?>

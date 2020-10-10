@@ -43,7 +43,7 @@ if ($res):
 	<tr>
 		<td><?=$row['day']?></td>
 		<td><?=$row['hour']?>&ndash;<?=$row['hour']+1?></td>
-		<td><? format_username($row['username'], (int) $row['uid']) ?></td>
+		<td><?php format_username($row['username'], (int) $row['uid']) ?></td>
 		<td>
 <?php if (($row['cancelable']=='t' && $_SESSION['uid'] == $row['uid']) || admin()): ?>
 			<form action="cancel.php" method="post">

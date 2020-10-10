@@ -13,5 +13,5 @@
 			<li><a href="reserve.php">Varaa</a></li>
 			<li><a href="logout.php">Ulos</a></li>
 		</ul>
-	<? endif; ?>
+	<?php endif; ?>
 </div>
