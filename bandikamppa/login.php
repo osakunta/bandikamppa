@@ -6,7 +6,7 @@ if (!empty($_POST)) {
 	$password = coalesce($_POST, 'password');
 
 	$res = pg_query_ex($pgconn,
-		'select uid, status from bandi_users where username = {username} and password = sha1(bytea(salt || {password}));',
+		'select uid, status from bandikamppa_users where username = {username} and password = sha1(bytea(salt || {password}));',
 		array('username' => $username, 'password' => $password));
 
 	if ($res || pg_num_rows($res) > 0) {

@@ -1,5 +1,5 @@
 <?php
-$commonsql = "select r.rid, r.uid, r.day, u.username, r.hour, r.reserved > now() - interval '15 minutes' as cancelable from bandi_reservations r inner join bandi_users u using (uid) ";
+$commonsql = "select r.rid, r.uid, r.day, u.username, r.hour, r.reserved > now() - interval '15 minutes' as cancelable from bandikamppa_reservations r inner join bandikamppa_users u using (uid) ";
 if (admin() && coalesce($_GET, 'show_all') == 'yes') {
 	$res = pg_query_ex($pgconn, $commonsql . "order by r.day;");
 } else {

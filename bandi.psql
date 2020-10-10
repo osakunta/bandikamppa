@@ -6,10 +6,10 @@ CREATE OR REPLACE FUNCTION sha1(bytea) returns text AS $$
 $$ LANGUAGE SQL STRICT IMMUTABLE;
 
 -- Users
-create sequence bandi_uid_seq;
+create sequence bandikamppa_uid_seq;
 
-create table bandi_users (
-        uid integer not null default nextval('bandi_uid_seq'),
+create table bandikamppa_users (
+        uid integer not null default nextval('bandikamppa_uid_seq'),
         username varchar(30),
         realname text,
         email text,
@@ -23,10 +23,10 @@ create table bandi_users (
 );
 
 -- Reservations
-create sequence bandi_rid_seq;
+create sequence bandikamppa_rid_seq;
 
-create table bandi_reservations (
-        rid integer not null default nextval('bandi_rid_seq'),
+create table bandikamppa_reservations (
+        rid integer not null default nextval('bandikamppa_rid_seq'),
 
         uid integer not null,
         day date not null,
@@ -35,9 +35,9 @@ create table bandi_reservations (
         reserved timestamp with time zone default now(),
 
         primary key (rid),
-        foreign key (uid) references bandi_users(uid),
+        foreign key (uid) references bandikamppa_users(uid),
         unique (day, hour)
 );
 
-insert into bandi_users (uid, username, realname, email, status, hours, salt, password) values
-(nextval('bandi_uid_seq'), 'admin', 'Admin', 'admin@example.com', 'a', 20, 'deadcodedeadcode', sha1(bytea('deadcodedeadcode' || 'admin')));
+insert into bandikamppa_users (uid, username, realname, email, status, hours, salt, password) values
+(nextval('bandikamppa_uid_seq'), 'admin', 'Admin', 'admin@example.com', 'a', 20, 'deadcodedeadcode', sha1(bytea('deadcodedeadcode' || 'admin')));

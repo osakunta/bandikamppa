@@ -50,7 +50,7 @@ if (!empty($_POST)) {
 		try {
 			for ($i = $from; $i < $to; $i++) {
 				$res = pg_query_ex($pgconn,
-					'insert into bandi_reservations (uid, day, hour) values ({uid}, {day}, {hour});',
+					'insert into bandikamppa_reservations (uid, day, hour) values ({uid}, {day}, {hour});',
 					array(
 						'uid' => $_SESSION['uid'],
 						'day' => $day,

@@ -1,7 +1,7 @@
 <?php
 require_admin();
 
-$res = pg_query_ex($pgconn, 'select uid, username, realname, email, hours, status from bandi_users order by username;');
+$res = pg_query_ex($pgconn, 'select uid, username, realname, email, hours, status from bandikamppa_users order by username;');
 
 ?>
 <p>
@@ -36,5 +36,3 @@ $res = pg_query_ex($pgconn, 'select uid, username, realname, email, hours, statu
 </table>
 <?php
 require('inc/footer.php');
-
-

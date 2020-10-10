@@ -14,9 +14,9 @@ if (!empty($_POST)) {
 	$rid = coalesce($_POST, 'rid');
 
 	if ($rid) {
-		$templatesql = "delete from bandi_reservations where rid = {rid} and reserved > now() - interval '15 minutes';";
+		$templatesql = "delete from bandikamppa_reservations where rid = {rid} and reserved > now() - interval '15 minutes';";
 		if (admin()) {
-			$templatesql = "delete from bandi_reservations where rid = {rid}";
+			$templatesql = "delete from bandikamppa_reservations where rid = {rid}";
 		}
 
 		$res = pg_query_ex($pgconn,

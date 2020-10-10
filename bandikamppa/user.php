@@ -23,10 +23,10 @@ if (!empty($_POST)) {
 	}
 
 	if ($uid === null) {
-		$res = pg_query_ex($pgconn, "select nextval('bandi_uid_seq');");
+		$res = pg_query_ex($pgconn, "select nextval('bandikamppa_uid_seq');");
 		$uid = (int) pg_fetch_result($res, 0, 0);
 
-		pg_query_ex($pgconn, "insert into bandi_users (uid, username, realname, email, hours, status) values ({uid}, {username}, {realname}, {email}, {hours}, 'b');",
+		pg_query_ex($pgconn, "insert into bandikamppa_users (uid, username, realname, email, hours, status) values ({uid}, {username}, {realname}, {email}, {hours}, 'b');",
 			array(
 				'uid' => $uid,
 				'username' => $username,
@@ -35,7 +35,7 @@ if (!empty($_POST)) {
 				'hours' => $hours
 			));
 	} else {
-		pg_query_ex($pgconn, "update bandi_users set username = {username}, realname = {realname}, email = {email}, hours = {hours} where uid = {uid}",
+		pg_query_ex($pgconn, "update bandikamppa_users set username = {username}, realname = {realname}, email = {email}, hours = {hours} where uid = {uid}",
 			array(
 				'uid' => $uid,
 				'username' => $username,
@@ -51,7 +51,7 @@ if (!empty($_POST)) {
 	if ($pass1 !== null) {
 		if ($pass1 === $pass2) {
 			$salt = substr(uniqid("",true), 0, 16);
-			pg_query_ex($pgconn, 'update bandi_users set salt = {salt}, password = sha1(bytea({salt} || {password})) where uid = {uid}',
+			pg_query_ex($pgconn, 'update bandikamppa_users set salt = {salt}, password = sha1(bytea({salt} || {password})) where uid = {uid}',
 				array(
 					'uid' => $uid,
 					'salt' => $salt,
@@ -70,7 +70,7 @@ if (!empty($_POST)) {
 }
 
 if ($uid !== null) {
-	$res = pg_query_ex($pgconn, 'select uid, username, realname, email, hours, status from bandi_users where uid = {uid};', array('uid' => (int) $uid));
+	$res = pg_query_ex($pgconn, 'select uid, username, realname, email, hours, status from bandikamppa_users where uid = {uid};', array('uid' => (int) $uid));
 	$row = pg_fetch_assoc($res);
 } else {
 	$row = null;

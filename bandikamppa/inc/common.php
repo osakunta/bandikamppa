@@ -50,7 +50,7 @@ function require_admin() {
 }
 
 if (authorized()) {
-	$res = pg_query_ex($pgconn, 'select uid, username, realname, status, hours from bandi_users where uid = {uid}', array('uid' => $_SESSION['uid']));
+	$res = pg_query_ex($pgconn, 'select uid, username, realname, status, hours from bandikamppa_users where uid = {uid}', array('uid' => $_SESSION['uid']));
 	$viewer = pg_fetch_assoc($res);
 	$viewer['hours'] = (int) $viewer['hours'];
 }
@@ -69,11 +69,11 @@ function reservations_left($pgconn, $day = null ) {
 
 	if ($day) {
 		$res = pg_query_ex($pgconn,
-			"select count(*) from bandi_reservations where date_trunc('month', day) = date_trunc('month', date {day}) and uid = {uid};",
+			"select count(*) from bandikamppa_reservations where date_trunc('month', day) = date_trunc('month', date {day}) and uid = {uid};",
 			array('day' => $day, 'uid' => $viewer['uid']));
 	} else {
 		$res = pg_query_ex($pgconn,
-			"select count(*) from bandi_reservations where date_trunc('month', day) = date_trunc('month', now()) and uid = {uid}",
+			"select count(*) from bandikamppa_reservations where date_trunc('month', day) = date_trunc('month', now()) and uid = {uid}",
 			array('uid' => $viewer['uid']));
 	}
 
