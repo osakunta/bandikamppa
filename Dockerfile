@@ -6,5 +6,6 @@ RUN apt-get update \
 
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 RUN echo 'date.timezone = "Europe/Helsinki"' > $PHP_INI_DIR/php.ini
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
 COPY bandikamppa/ /var/www/html
